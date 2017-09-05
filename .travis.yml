@@ -33,6 +33,3 @@ script:
 cache:
   directories:
     - sysconfcpus
-    - elm-stuff/build-artifacts
-    - tests/elm-stuff/build-artifacts
-    - demo/elm-stuff/build-artifacts
