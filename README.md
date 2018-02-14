@@ -1,6 +1,7 @@
 # Date and Time Picker
 
-# THIS IS A FORK OF https://github.com/abadi199/datetimepicker
+# THIS IS A FORK OF THE FORK OF https://github.com/abadi199/datetimepicker
+# only temp until we've upgraded elm-css
 
 ## Demo
 
@@ -107,43 +108,43 @@ In order to localize your date format, you need to provide the date time picker 
 
 ### CSS
 The CSS for this date time picker can be downloaded from [here](https://raw.githubusercontent.com/abadi199/datetimepicker/master/styles/styles.css), or if you're using rtfeldman/elm-css package, you can just include the `Stylesheet` from `DateTimePicker.Css` module.
-Date and Time Picker written entirely in Elm. 
+Date and Time Picker written entirely in Elm.
 
 ### Example
 Here's a snippet of typical Elm application:
 ```elm
-main = 
-    Html.program 
-        { init = init 
+main =
+    Html.program
+        { init = init
         , view = view
         , update = update
-        , subscriptions = subscriptions 
+        , subscriptions = subscriptions
         }
 
-type Msg 
+type Msg
     = DateChange DateTimePicker.State (Maybe Date)
 
-type alias Model = 
+type alias Model =
     { selectedDate : Maybe Date
-    , datePickerState : DateTimePicker.State 
+    , datePickerState : DateTimePicker.State
     }
 
-init = 
+init =
     ( { selectedDate = Nothing, datePickerState.initialState }
     , DateTimePicker.initialCmd DateChange DateTimePicker.initialState
     )
 
-view model = 
-    DateTimePicker.dateTimePickerWithConfig 
-        DateChange 
-        [ class "my-datetimepicker" ] 
-        model.datePickerState 
+view model =
+    DateTimePicker.dateTimePickerWithConfig
+        DateChange
+        [ class "my-datetimepicker" ]
+        model.datePickerState
         model.selectedDate
 
 update msg model =
     case msg of
         DateChange datePickerState selectedDate ->
-            ( { model | selectedDate = selectedDate, datePickerState = datePickerState }, Cmd.none ) 
+            ( { model | selectedDate = selectedDate, datePickerState = datePickerState }, Cmd.none )
 
 subscriptions =
     ...
